@@ -1,0 +1,103 @@
+body {
+    font-size: 20px;
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-image: url("sard.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/* ------------------------------ */
+button {
+    outline: none !important;
+    border: none;
+    background: transparent;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+input {
+    outline: none;
+    border: none !important;
+}
+
+textarea {
+    outline: none;
+}
+
+textarea:focus,
+input:focus {
+    border-color: transparent !important;
+}
+
+p {
+    line-height: 1;
+    margin: 20px 0
+}
+
+p a {
+    text-decoration: underline
+}
+
+
+a:focus,
+a:hover {
+    color: #00d5ff
+}
+
+blockquote {
+    font-style: italic;
+    color: #868e96
+}
+
+.section-heading {
+    font-size: 36px;
+    font-weight: 700;
+    margin-top: 50px
+}
+
+.caption {
+    font-size: 14px;
+    font-style: italic;
+    margin: 0;
+    padding: 10px;
+    text-align: center;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px
+}
+
+.navbar-toggler {
+    font-size: 12px;
+    font-weight: 800;
+    padding: 13px;
+    text-transform: uppercase;
+    border-color: black;
+}
+
+.navbar-nav>li.nav-item>a {
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase
+}
+
+/* ---------------------------------------------- */
+footer {
+    padding: 20px 0 20px
+}
+
+footer .list-inline {
+    margin: 0;
+    padding: 0
+}
+
+footer .copyright {
+    font-size: 14px;
+    margin-bottom: 0;
+    text-align: center
+}
+
+@media only screen and (min-width:992px) {}
+
+@media only screen and (min-width:768px) {}
