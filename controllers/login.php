@@ -2,7 +2,6 @@
 class login extends Controller
 {
     public $mymodel = null;
-    // seda zadan model
     public function __construct($model)
     {
         parent::__construct();
