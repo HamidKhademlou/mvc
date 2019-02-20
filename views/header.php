@@ -12,7 +12,6 @@
   <!-- Bootstrap core CSS -->
   <link href="<?= URL ?>/libs/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom fonts for this template -->
-  <link href="<?= URL ?>/libs/site/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
     rel='stylesheet' type='text/css'>
@@ -25,14 +24,26 @@
 
   <style>
     @font-face {
-      font-family: 'b-yekan';
-      /*a name to be used later*/
-      src: url('<?= URL ?>/views/fonts/BYekan.ttf');
-      /*URL to font*/
+      font-family: 'byekan';      /*a name to be used later*/
+      src: url('<?= URL ?>/views/fonts/BYekan.ttf');      /*URL to font*/
+    }
+    @font-face {
+      font-family: 'broya';      /*a name to be used later*/
+      src: url('<?= URL ?>/views/fonts/BRoya.ttf');      /*URL to font*/
+    }
+    @font-face {
+      font-family: 'iransans';      /*a name to be used later*/
+      src: url('<?= URL ?>/views/fonts/IRANSansWeb.ttf');      /*URL to font*/
     }
 
     .byekan{
-      font-family: 'b-yekan';
+      font-family: 'byekan';
+    }
+    .broya{
+      font-family: 'broya';
+    }
+    .iransans{
+      font-family: 'iransans';
     }
     
     .bg {
@@ -130,13 +141,6 @@
               echo "<a class=\"nav-link\" href=\"" . URL . "/login/login\">Login</a>";
             }
             ?>
-          </li>
-          <li class="nav-item">
-            <?php if (isset($_SESSION["Login"])) {
-              echo "<a class=\"nav-link\" href=\"" . URL . "/login/logout\">Logout</a>";
-            }
-            ?>
-          </li>
           <?php if (isset($_SESSION["Login"])) : ?>
           <li class="nav-item">
             <a class="nav-link" href='<?= URL ?>/market'>Market</a>
@@ -150,7 +154,7 @@
           $request = explode("/", $url);
           ?>
           <li class="nav-item">
-            <form id="searchform" class="form-inline mx-1" action="<?= URL.'/'.$request[2] ?>/search/">
+            <form id="searchform" class="form-inline m-0" style="padding:4.5px 0px" action="<?= URL.'/'.$request[2] ?>/search/">
               <div class="input-group">
                 <div class="input-group-prepend">
                   <button class="btn-sm btn-outline-warning" type="submit" id="search1">
@@ -173,6 +177,13 @@
               </span>
             </button>
           </li>
+          </li>
+          <li class="nav-item">
+            <?php if (isset($_SESSION["Login"])) {
+              echo "<a class=\"nav-link\" href=\"" . URL . "/login/logout\">Logout</a>";
+            }
+            ?>
+          </li>
         </ul>
       </div>
     </div>
@@ -194,6 +205,6 @@
   </header>
 
   <!-- Main Content -->
-  <div class="container-fluid">
+  <div class="container-fluid iransans">
     <div class="bg"></div>
     <div class="row mx-auto">

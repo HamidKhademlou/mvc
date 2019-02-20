@@ -16,9 +16,6 @@
 </style>
 
 <div class="card m-1" style="box-sizing: border-box;">
-    <!-- <img class="card-img-top" src="https://www.yasdl.com/wp-content/uploads/2017/11/Mozilla-Firefox.cover_.jpg" style="width: 18rem;"
-        alt="Card image cap"> -->
-
     <div class="card-body">
         <h5 class="card-title"></h5>
         <p class="card-text"><small class="text-muted "></small></p>

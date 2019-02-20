@@ -333,18 +333,16 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php
-                        echo " <tr>
-                            <td class=\"column1\">$id</td>
-                            <td class=\"column2\">$firstname</td>
-                            <td class=\"column3\">$lastname</td>
-                            <td class=\"column4\">$username</td>
-                            <td class=\"column5\">$password</td>
-                            <td class=\"column6\">$email</td>
-                            <td class=\"column8\">$lastlogin</td>
-                            <td class=\"column9\">$lastloginip</td>
-                        </tr> ";
-                        ?>
+                        <tr>
+                            <td class="column1"><?=$id?></td>
+                            <td class="column2"><?=$firstname?></td>
+                            <td class="column3"><?=$lastname?></td>
+                            <td class="column4"><?=$username?></td>
+                            <td class="column5"><?=$password?></td>
+                            <td class="column6"><?=$email?></td>
+                            <td class="column8"><?=date('Y-m-d H:i:s', $lastlogin)?></td>
+                            <td class="column9"><?=$lastloginip?></td>
+                        </tr>
                     </tbody>
                 </table>
             </div>

@@ -55,11 +55,11 @@
 <div class="col-11 mx-auto p-2">
     <div class="table-responsive" id="user">
         <table class="table table-hover" style="direction: rtl;">
-            <thead class="text-center">
+            <thead class="text-center iransans">
                 <tr class="bg-warning" style="fontsize">
-                    <th class="column1">#</th>
-                    <th class="column2 byekan">نام</th>
-                    <th class="column3 byekan">نام خانوادگی</th>
+                    <th class="column1">ID</th>
+                    <th class="column2 ">نام</th>
+                    <th class="column3">نام خانوادگی</th>
                     <th class="column4">نام کاربری</th>
                     <!-- <th class="column5">Password</th> -->
                     <th class="column6">ایمیل</th>
@@ -69,7 +69,7 @@
                     <th class="column10">عملیات</th>
                 </tr>
             </thead>
-            <tbody class="text-center">
+            <tbody class="text-center byekan">
             <?php foreach ($output as $key => $value) : ?>
                 <tr id="tr-<?= $value['id'] ?>" class="trsearchhide">
                 <td class="column1"><?= $value["id"] ?></td>
@@ -96,7 +96,7 @@
                         </div>
                     </div>
                 </td>
-                <td class="column8"><?= $value["lastlogin"] ?></td>
+                <td class="column8" style='direction:ltr'><?= date('Y-m-d H:i:s', $value["lastlogin"]) ?></td>
                 <td class="column9"><?= $value["lastloginip"] ?></td>
                 <td class="column10">
                     <div class="btn-group btn-group-sm" data-toggle="buttons">
