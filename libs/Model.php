@@ -71,7 +71,7 @@ class Model
         }
     }
 
-    function notrep($field, $x, $tablename = "user")
+    public function notrep($field, $x, $tablename = "user")
     {
         $con = $this->con;
         $sql = "SELECT $field FROM $tablename WHERE $field='$x'";

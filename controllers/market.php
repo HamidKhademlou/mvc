@@ -22,6 +22,7 @@ class market extends Controller
             $name = $_POST["name"];
             $nameerr = $this->mymodel->notrep_handler("name", $name, "kala");
             $price = $_POST["price"];
+            $body = $_POST["body"];
             if (empty($_POST["name"]) or empty($_POST["price"])) {
                 header("Location: " . URL . "/market/add/" . "?error=1&&name=$name&&price=$price");
             } else {
@@ -31,12 +32,15 @@ class market extends Controller
                     $read = array();
                     $read["name"] = $name;
                     $read["price"] = $price;
-                    $data = $this->mymodel->insert('kala', $read);
+                    $read["body"] = $body;
                     // *------------------------upload image-----------------------------
                     $newname = "C:/xampp/htdocs/hamid/mvc/views/market/pic/" . $read["name"] . ".jpg";
-                    $uploding = FormValidation::uploadImage("C:/xampp/htdocs/hamid/mvc/views/market/pic/", "fileToUpload", "1000000",$newname);
-                    if (!empty($uploding)){
-                        header("Location: " . URL . "/market/add/" . "?uploaderror=$uploding");
+                    $imageErr = FormValidation::uploadImage("C:/xampp/htdocs/hamid/mvc/views/market/pic/", "fileToUpload", "1000000", $newname);
+                    if (!empty($imageErr)) {
+                        header("Location: " . URL . "/market/add/" . "?uploaderror=$imageErr");
+                    } else {
+                        // if everything is ok, then insert product data
+                        $data = $this->mymodel->insert('kala', $read);
                     }
                     // $target_file = "C:/xampp/htdocs/hamid/mvc/views/market/pic/" . basename($_FILES["fileToUpload"]["name"]);
                     // $uploadOk = 1;
@@ -99,12 +103,14 @@ class market extends Controller
         $items = rtrim($_SESSION["items"], "/");
         $items = explode("/", $items);
         if (count(array_keys($items, $_GET["id"])) > 0) {
+            // add nothing
         } else {
-            $_SESSION["items"] = $_GET["id"] . "/" . $_SESSION["items"];
+            $_SESSION["items"] = "/" . $_GET["id"] . "/" . $_SESSION["items"];
+            $_SESSION["items"] = str_replace("//", "/", $_SESSION["items"]);
         }
         $items = rtrim($_SESSION["items"], "/");
         $items = explode("/", $items);
-        $_SESSION["count"] = count($items);
+        $_SESSION["count"] = count($items) - 1;
         header("Location: " . URL . "/market/index/");
     }
 
@@ -112,19 +118,17 @@ class market extends Controller
     {
         $condition = "";
         if (isset($_GET["id"])) {
-            $_SESSION["items"] = str_replace($_GET['id'] . "/", null, $_SESSION["items"]);
+            $_SESSION["items"] = str_replace("/" . $_GET['id'] . "/", "/", $_SESSION["items"]);
         }
         $items = rtrim($_SESSION["items"], "/");
         $items = explode("/", $items);
-        $_SESSION["count"] = count($items);
-        if ($_SESSION["items"] == "") {
-            $_SESSION["count"] = 0;
-        }
-        for ($i = 0; $i < $_SESSION["count"]; $i++) {
+        $_SESSION["count"] = count($items) - 1;
+        for ($i = 1; $i <= $_SESSION["count"]; $i++) {
             $condition .= " id='$items[$i]' OR";
         }
         $condition = rtrim($condition, "OR");
         if ($_SESSION["count"] == 0) {
+            $_SESSION["items"] = null;
             header("Location: " . URL . "/market/index/");
         } else {
             $alldata = $this->mymodel->select('kala', '*', $condition, 0);

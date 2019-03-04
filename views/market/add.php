@@ -255,17 +255,18 @@
                                 placeholder="Enter name">
                             <input type="number" name="price" class="form-control-sm m-2" value="<?= @$_GET['price'] ?>"
                                 placeholder="Enter Price">
+                            <input type="text" name="body" class="form-control-sm m-2" value="<?= @$_GET['body'] ?>"
+                                placeholder="Product Description">
                             <input type="file" name="fileToUpload" id="fileToUpload" class="btn-sm btn-warning mx-2">
                             <input type="submit" name="submit" class="btn btn-success m-2">
                         </div>
                     </div>
-
                 </form>
 
                 <table class="col-6">
                     <thead>
                         <tr class="table100-head">
-                            <th class="column1">#</th>
+                            <th class="column1">ID</th>
                             <th class="column2">name</th>
                             <th class="column3">price</th>
                             <th class="column4">action</th>

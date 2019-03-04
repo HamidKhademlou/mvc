@@ -27,7 +27,7 @@ class site extends Controller
     foreach ($myuser as $key => $value) {
       $myfile = fopen("student.csv", "a+") or die("Unable to open file!");
       foreach ($value as $value2) {
-                // $value = test_input($value);
+        // $value = test_input($value);
         fwrite($myfile, $value2 . ", ");
       }
       fwrite($myfile, "\r\n");

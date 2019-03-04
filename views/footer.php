@@ -34,7 +34,7 @@
             </a>
           </li>
         </ul>
-        <p class="copyright text-muted shadow-lg rounded">Copyright &copy; Your Website 2018</p>
+        <p class="copyright text-muted shadow-lg rounded">Copyright &copy; Hamid MVC 2018</p>
       </div>
     </div>
   </div>
@@ -42,7 +42,8 @@
 
 <!-- Bootstrap core JavaScript -->
 <script src="<?= URL ?>/libs/jquery-3.3.1.min.js"></script>
-<script src="<?= URL ?>/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="<?= URL ?>/libs/bootstrap/js/popper.js"></script>
+<script src="<?= URL ?>/libs/bootstrap/js/bootstrap.min.js"></script>
 <!-- Custom scripts for this template -->
 <script src="<?= URL . URL_JS_SITE ?>js/clean-blog.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

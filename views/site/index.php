@@ -1,20 +1,7 @@
 </div>
-<?php 
-// echo "first page of my site";
-// echo $this->myjs;
-?>
-<style>
-    @keyframes spin {
-        0% {
-            transform: rotate(0deg);
-        }
-
-        100% {
-            transform: rotate(360deg);
-        }
-    }
-</style>
-
+<!-- <?php 
+echo $this->myjs;
+?> -->
 <div class="card m-1" style="box-sizing: border-box;">
     <div class="card-body">
         <h5 class="card-title"></h5>

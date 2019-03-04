@@ -46,6 +46,15 @@
       font-family: 'iransans';
     }
     
+    @keyframes spin {
+      0% {
+          transform: rotate(0deg);
+      }
+      100% {
+          transform: rotate(360deg);
+      }
+    }
+
     .bg {
       background-image: url("<?= URL ?>/views/sard.jpg");
       position: fixed;
@@ -145,9 +154,6 @@
           <li class="nav-item">
             <a class="nav-link" href='<?= URL ?>/market'>Market</a>
           </li><?php endif; ?>
-          <li class="nav-item">
-            <a id="clock" class="nav-link"></a>
-          </li>
           <?php
           $uri = $_SERVER['REQUEST_URI'];
           $url = trim($uri, "/");
@@ -183,6 +189,9 @@
               echo "<a class=\"nav-link\" href=\"" . URL . "/login/logout\">Logout</a>";
             }
             ?>
+          </li>
+          <li class="nav-item">
+            <a id="clock" class="nav-link"></a>
           </li>
         </ul>
       </div>

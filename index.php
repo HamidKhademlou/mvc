@@ -18,11 +18,7 @@ define('URL_MAIL_SITE','/libs/site/');
 define('URL_SCSS_SITE','/libs/site/');
 // define('URL_VENDOR_SITE','/libs/site/');
 // login
-define('URL_CSS_LOGIN','/libs/login/');
-define('URL_FONTS_LOGIN','/libs/login/');
-define('URL_IMAGES_LOGIN','/libs/login/');
-define('URL_JS_LOGIN','/libs/login/');
-define('URL_VENDOR_LOGIN','/libs/login/');
+define('URL_LOGIN','/libs/login/');
 
 require_once ("libs/Session.php");
 require_once "Libs/FormValidation.php";
@@ -31,7 +27,6 @@ require_once ("libs/logindata.php");
 require_once "libs/Controller.php";
 require_once "libs/Model.php";
 require_once "libs/View.php";
-
 require_once "Controllers/errors.php";
 
 // ===============error=====================

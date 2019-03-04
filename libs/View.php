@@ -4,6 +4,10 @@ class view
     public function __contruct()
     {
     }
+
+    /**
+     * rendering view
+     */
     public function render($folder, $file, $output = array(), $load = 0)
     {
         if ($load == 0) {

@@ -9,8 +9,7 @@ class Controller
     }
     public function check_access()
     {
-        // session::init();
-        if(!session::getsession('Login')){
+        if (!session::getsession('Login')) {
             header("Location: " . URL . "/login/index/");
         }
     }
