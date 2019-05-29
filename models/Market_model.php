@@ -7,10 +7,11 @@ class Market_model extends Model
         $this->flagconnection = parent::__construct();
         // $this->searchuser('hamid');
     }
-    
+
     public function notrep_handler($field, $data, $tablename)
     {
         $data = $this->notrep($field, $data, $tablename);
         return $data;
     }
 }
+

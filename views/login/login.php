@@ -39,7 +39,8 @@
 					<?php if (@$_GET['error'] == 1) : ?>
 					<span class="text-danger flex-col-c">*username or password is incorrect*</span>
 					<?php endif; ?>
-					<?php if (@$_GET['error'] == 2) : echo "<center><span class=\" text-danger\">*this account is not active*</span></center>"; ?>
+					<?php if (@$_GET['error'] == 2) : ?>
+					<span class="text-danger text-center">*this account is not active*</span>
 					<?php endif; ?>
 
 					<div class="wrap-input100 validate-input m-b-23" data-validate="Username is reauired">

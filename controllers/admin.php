@@ -8,6 +8,7 @@ class admin extends Controller
         parent::__construct();
         $this->mymodel = $model;
         $this->check_access();
+        Auth::guard('Admin');
         $this->ViewObject->myjs = array('admin.js','search.js','time.js');
     }
 
@@ -46,30 +47,30 @@ class admin extends Controller
                 if (empty($_POST["username"])) {
                     $usernameerr = "username is required";
                 } else {
-                    $username = $this->mymodel->test_input_handler($_POST["username"]);
+                    $username = FormValidation::securityTest_input($_POST["username"]);
                     $usernameerr = $this->mymodel->notrep_handler("username", $username);
                 }
                 if (empty($_POST["password"])) {
                     $passworderr = "password is requierd";
                 } else {
-                    $password = $this->mymodel->test_input_handler($_POST["password"]);
+                    $password = FormValidation::securityTest_input($_POST["password"]);
                 }
                 if (empty($_POST["email"])) {
                     $emailerr = "email is requierd";
                 } else {
-                    $email = $this->mymodel->test_input_handler($_POST["email"]);
+                    $email = FormValidation::securityTest_input($_POST["email"]);
                     $email = filter_var($email, FILTER_SANITIZE_EMAIL);
                     $emailerr = $this->mymodel->notrep_handler("email", $email);
                 }
                 if (empty($_POST["firstname"])) {
                     $firstnameerr = "firstname is requierd";
                 } else {
-                    $firstname = $this->mymodel->test_input_handler($_POST["firstname"]);
+                    $firstname = FormValidation::securityTest_input($_POST["firstname"]);
                 }
                 if (empty($_POST["lastname"])) {
                     $lastnameerr = "lastname is requierd";
                 } else {
-                    $lastname = $this->mymodel->test_input_handler($_POST["lastname"]);
+                    $lastname = FormValidation::securityTest_input($_POST["lastname"]);
                 }
                 echo "<center>";
                 if (!empty($usernameerr) or !empty($emailerr)) {

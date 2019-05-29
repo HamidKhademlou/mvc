@@ -7,11 +7,11 @@ class Admin_model extends Model
         $this->flagconnection = parent::__construct();
     }
 
-    public function test_input_handler($data)
-    {
-        $data = $this->test_input($data);
-        return $data;
-    }
+    // public function test_input_handler($data)
+    // {
+    //     $data = $this->test_input($data);
+    //     return $data;
+    // }
     public function notrep_handler($field, $data)
     {
         $data = $this->notrep($field, $data);

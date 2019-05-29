@@ -1,4 +1,4 @@
-<?php 
+<?php
 class site extends Controller
 {
   public $mymodel;
@@ -8,7 +8,7 @@ class site extends Controller
     $this->mymodel = $model;
     // $this->check_access();
     $this->ViewObject->mycss = array();
-    $this->ViewObject->myjs = array('site.js','time.js');
+    $this->ViewObject->myjs = array('site.js', 'time.js');
   }
 
   public function index()

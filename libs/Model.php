@@ -11,12 +11,21 @@ class Model
             echo "connection failed<br>" . $e->getMessage();
         }
     }
-    public function insert($tablename, $read, $condition = null)
+
+    /**
+     * insert data to database
+     *
+     * @param string $tablename
+     * @param array $data
+     * @param int $condition
+     * @return void
+     */
+    public function insert($tablename, $data, $condition = null)
     {
         $con = $this->con;
         $keys = "";
         $values = "";
-        foreach ($read as $key => $value) {
+        foreach ($data as $key => $value) {
             $keys .= $key . " , ";
             $values .= "'" . $value . "'" . " , ";
         }
@@ -27,12 +36,12 @@ class Model
         } else {
             $sql = "INSERT INTO $tablename ( id,$keys,typeuser) VALUES ('',$values,'notactive')";
         }
-
         if ($condition) {
             $sql = "INSERT INTO $tablename ( id,$keys,typeuser) VALUES ('',$values,'notactive') WHERE $condition";
         }
-        $con->exec($sql);
-        // $last_id = $con->lastInsertId();
+
+        $con->prepare($sql)->execute();
+        // $con->exec($sql);
     }
     public function update($tablename, $read, $condition)
     {
@@ -43,7 +52,6 @@ class Model
         }
         $sql = rtrim($sql, ', ');
         $sql .= " WHERE " . $condition;
-        // var_dump($sql);die;
         $con->exec($sql);
     }
 
@@ -54,14 +62,23 @@ class Model
         $con->exec($sql);
     }
 
+    /**
+     * select data from database
+     *
+     * @param string $tablename
+     * @param string $fields
+     * @param string $condition
+     * @param integer $flag
+     * @return array
+     */
     public function select($tablename, $fields = "*", $condition, $flag = 0)
     {
         $con = $this->con;
-        $sql = "SELECT $fields FROM $tablename WHERE $condition";
-        if ($condition == "") {
+        if ($condition) {
+            $sql = "SELECT $fields FROM $tablename WHERE $condition";
+        } else {
             $sql = "SELECT $fields FROM $tablename";
         }
-        // var_dump($sql);
         $stmt = $this->con->prepare($sql);
         $stmt->execute();
         if ($flag == 0) {

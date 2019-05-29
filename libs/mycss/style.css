@@ -1,0 +1,290 @@
+* {
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'byekan';
+    /*a name to be used later*/
+    src: url('../fonts/BYekan.ttf');
+    /*URL to font*/
+}
+
+@font-face {
+    font-family: 'broya';
+    /*a name to be used later*/
+    src: url('<../fonts/BRoya.ttf');
+    /*URL to font*/
+}
+
+@font-face {
+    font-family: 'iransans';
+    /*a name to be used later*/
+    src: url('../fonts/IRANSansWeb.ttf');
+    /*URL to font*/
+}
+
+.byekan {
+    font-family: 'byekan' !important;
+}
+
+.broya {
+    font-family: 'broya' !important;
+}
+
+.iransans {
+    font-family: 'iransans' !important;
+}
+
+.rtl{
+    direction: rtl;
+}
+
+::placeholder {
+    color: black;
+    font-size: 13px;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.bg {
+    background-image: url("../../views/sard.jpg");
+    position: fixed;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 0.5;
+    z-index: -5;
+}
+
+button {
+    outline: none !important;
+    border: none;
+    background: transparent;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+input {
+    display: block;
+    outline: none;
+    border: none !important;
+}
+
+textarea {
+    display: block;
+    outline: none;
+}
+
+textarea:focus,
+input:focus {
+    border-color: transparent !important;
+}
+
+a:hover {
+    color: #ffc107;
+}
+
+.loader {
+    position: fixed;
+    display: none;
+    top: 40vh;
+    left: 45%;
+    border: 16px solid #f3f3f3;
+    /* Lightgrey */
+    border-top: 16px solid #3498db;
+    /* Blue */
+    border-bottom: 16px solid #3498db;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    animation: spin 2s linear infinite;
+    z-index: 1000;
+}
+
+/* ------------------------ */
+a {
+    margin: 0px;
+    transition: all 0.4s;
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+}
+
+a:focus {
+    outline: none !important;
+}
+
+p {
+    margin: 0px;
+}
+
+ul,
+li {
+    margin: 0px;
+    list-style-type: none;
+}
+
+table {
+    border-spacing: 1;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+}
+
+table td,
+table th {
+    padding-left: 8px;
+}
+
+table thead tr {
+    height: 55px;
+    background: #36304a;
+}
+
+table tbody tr {
+    height: 50px;
+}
+
+table tbody tr:last-child {
+    border: 0;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f5f5f5;
+}
+
+tbody th {
+    font-size: 0.8rem;
+}
+
+tbody tr:hover {
+    color: #555555;
+    background-color: #f5f5f5;
+    cursor: pointer;
+}
+
+tbody tr {
+    font-size: 0.9rem;
+    color: #808080;
+}
+
+.column1,
+.column2,
+.column3,
+.column4,
+.column5,
+.column6,
+.column7,
+.column8,
+.column9,
+.column10 {
+    text-align: center;
+    /* width: 50px; */
+}
+
+/* --------------------- */
+[ Table]*/ .limiter {
+    margin: 0 auto;
+}
+
+.container-table100 {
+    min-height: 100%;
+    /* background: #c850c0;
+    background: -webkit-linear-gradient(45deg, #4158d0, #c850c0);
+    background: -o-linear-gradient(45deg, #4158d0, #c850c0);
+    background: -moz-linear-gradient(45deg, #4158d0, #c850c0);
+    background: linear-gradient(45deg, #4158d0, #c850c0); */
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 33px 30px;
+}
+
+.wrap-table100 {
+    width: 100%;
+}
+
+.table100-head th {
+    font-size: 18px;
+    color: #fff;
+    line-height: 1.2;
+    font-weight: unset;
+}
+
+@media screen and (max-width: 992px) {
+    /* table {
+        display: block;
+    }
+
+    table>*,
+    table tr,
+    table td,
+    table th {
+        display: block;
+    }
+
+    table thead {
+        display: none;
+    }
+
+    table tbody tr {
+        height: auto;
+        padding: 37px 0;
+    }
+
+    table tbody tr td {
+        padding-left: 40% !important;
+    }
+
+    table tbody tr td:before {
+        color: #999999;
+        line-height: 1.2;
+        left: 30px;
+        top: 0;
+        position: absolute;
+    }
+
+    table tbody tr td:nth-child(1):before {
+        content: "id";
+    }
+
+    table tbody tr td:nth-child(2):before {
+        content: "name";
+    }
+
+    table tbody tr td:nth-child(3):before {
+        content: "price";
+    }
+
+    table tbody tr td:nth-child(4):before {
+        content: "action";
+    } */
+}
+
+/* @media (max-width: 576px) {
+    .container-table100 {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+} */

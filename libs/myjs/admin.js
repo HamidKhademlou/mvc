@@ -1,12 +1,13 @@
 $("button").click(function (e) {
     var idClicked = e.target.id;
     var buttonid = idClicked.split("-");
+    // console.log(buttonid);
     var afterchangetext = $('#dropdownMenuButton' + buttonid[1]).html();
     var dropdownMenuButton = "dropdownMenuButton" + buttonid[1];
 
     if (buttonid[0] == "delete") {
         $.ajax({
-            url: 'http://localhost/hamid/mvc/admin/delete/?id=' + buttonid[1],
+            url: 'http://localhost/mvc/admin/delete/?id=' + buttonid[1],
             success: function (data) {
                 $('#tr-' + buttonid[1]).remove();
             },
@@ -15,7 +16,7 @@ $("button").click(function (e) {
     }
     if (buttonid[0] == "Admin") {
         $.ajax({
-            url: 'http://localhost/hamid/mvc/admin/access/?id=' + buttonid[1] + '&&typeuser=' + buttonid[0],
+            url: 'http://localhost/mvc/admin/access/?id=' + buttonid[1] + '&&typeuser=' + buttonid[0],
             success: function (data) {
                 $('#' + dropdownMenuButton).html("Admin");
                 $("#dropdownMenuButton"+buttonid[1]).addClass("btn-success");
@@ -28,7 +29,7 @@ $("button").click(function (e) {
     }
     if (buttonid[0] == "normal") {
         $.ajax({
-            url: 'http://localhost/hamid/mvc/admin/access/?id=' + buttonid[1] + '&&typeuser=' + buttonid[0],
+            url: 'http://localhost/mvc/admin/access/?id=' + buttonid[1] + '&&typeuser=' + buttonid[0],
             success: function (data) {
                 $('#' + dropdownMenuButton).html("normal");
                 $("#dropdownMenuButton"+buttonid[1]).addClass("btn-primary");
@@ -41,7 +42,7 @@ $("button").click(function (e) {
     }
     if (buttonid[0] == "notactive") {
         $.ajax({
-            url: 'http://localhost/hamid/mvc/admin/access/?id=' + buttonid[1] + '&&typeuser=' + buttonid[0],
+            url: 'http://localhost/mvc/admin/access/?id=' + buttonid[1] + '&&typeuser=' + buttonid[0],
             success: function (data) {
                 $('#' + dropdownMenuButton).html("notactive");
                 $("#dropdownMenuButton"+buttonid[1]).addClass("btn-danger");

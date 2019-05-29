@@ -1,10 +1,11 @@
 </div>
 <!-- /* *-----------------------table---------------------- */ -->
+
 <head>
     <style>
         * {
-            margin: 0px;
-            padding: 0px;
+            /* margin: 0px;
+            padding: 0px; */
             box-sizing: border-box;
         }
 
@@ -326,7 +327,7 @@
                             <th class="column2">Firstname</th>
                             <th class="column3">Lastname</th>
                             <th class="column4">Username</th>
-                            <th class="column5">Password</th>
+                            <!-- <th class="column5">Password</th> -->
                             <th class="column6">Email</th>
                             <th class="column8">Last login</th>
                             <th class="column9">last ip</th>
@@ -334,14 +335,14 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="column1"><?=$id?></td>
-                            <td class="column2"><?=$firstname?></td>
-                            <td class="column3"><?=$lastname?></td>
-                            <td class="column4"><?=$username?></td>
-                            <td class="column5"><?=$password?></td>
-                            <td class="column6"><?=$email?></td>
-                            <td class="column8"><?=date('Y-m-d H:i:s', $lastlogin)?></td>
-                            <td class="column9"><?=$lastloginip?></td>
+                            <td class="column1"><?= $id ?></td>
+                            <td class="column2"><?= $firstname ?></td>
+                            <td class="column3"><?= $lastname ?></td>
+                            <td class="column4"><?= $username ?></td>
+                            <!-- <td class="column5"><?= $password ?></td> -->
+                            <td class="column6"><?= $email ?></td>
+                            <td class="column8"><?= date('Y-m-d H:i:s', $lastlogin) ?></td>
+                            <td class="column9"><?= $lastloginip ?></td>
                         </tr>
                     </tbody>
                 </table>

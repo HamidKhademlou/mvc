@@ -1,5 +1,5 @@
 $("#getuser").click(function () {
-    $.get('http://localhost/hamid/mvc/site/getusers', function (data) {
+    $.get('http://localhost/mvc/site/getusers', function (data) {
         $("table").remove(".tablejson");
         $("#table1").append("<table class=\"table tablejson table-bordered table-hover\"><thead class=\"thead-dark\"><tr><th scope=\"col\">#</th><th scope=\"col\">id</th><th scope=\"col\">firstname</th><th scope=\"col\">lastname</th><th scope=\"col\">username</th><th scope=\"col\">password</th><th scope=\"col\">email</th><th scope=\"col\">role</th></tr></thead>");
         var i = 0;
@@ -20,7 +20,7 @@ $("#getuser").click(function () {
         $("#table1").append("</table>");
 
         // post
-        // $.post('http://localhost/hamid/mvc/site/getusers', 'test=ali', function (data) {
+        // $.post('http://localhost/mvc/site/getusers', 'test=ali', function (data) {
         // alert(data.test);
     }, 'json')
 });

@@ -7,7 +7,7 @@ class market extends Controller
     {
         parent::__construct();
         $this->mymodel = $model;
-        $this->ViewObject->myjs = array('search.js','time.js');
+        $this->ViewObject->myjs = array('search.js', 'time.js');
     }
 
     public function index()
@@ -15,9 +15,10 @@ class market extends Controller
         $alldata = $this->mymodel->select('kala', '*', "", 0);
         $this->ViewObject->render(__class__, 'index', $alldata);
     }
-    
+
     public function add()
     {
+        Auth::guard('Admin');
         if (isset($_POST["submit"])) {
             $name = $_POST["name"];
             $nameerr = $this->mymodel->notrep_handler("name", $name, "kala");
@@ -34,15 +35,15 @@ class market extends Controller
                     $read["price"] = $price;
                     $read["body"] = $body;
                     // *------------------------upload image-----------------------------
-                    $newname = "C:/xampp/htdocs/hamid/mvc/views/market/pic/" . $read["name"] . ".jpg";
-                    $imageErr = FormValidation::uploadImage("C:/xampp/htdocs/hamid/mvc/views/market/pic/", "fileToUpload", "1000000", $newname);
+                    $newname = "C:/xampp/htdocs/mvc/views/market/pic/" . $read["name"] . ".jpg";
+                    $imageErr = FormValidation::uploadImage("C:/xampp/htdocs/mvc/views/market/pic/", "fileToUpload", "1000000", $newname);
                     if (!empty($imageErr)) {
                         header("Location: " . URL . "/market/add/" . "?uploaderror=$imageErr");
                     } else {
                         // if everything is ok, then insert product data
                         $data = $this->mymodel->insert('kala', $read);
                     }
-                    // $target_file = "C:/xampp/htdocs/hamid/mvc/views/market/pic/" . basename($_FILES["fileToUpload"]["name"]);
+                    // $target_file = "C:/xampp/htdocs/mvc/views/market/pic/" . basename($_FILES["fileToUpload"]["name"]);
                     // $uploadOk = 1;
                     // $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
                     // // Check if image file is a actual image or fake image
@@ -75,7 +76,7 @@ class market extends Controller
                     //     echo "Sorry, your file was not uploaded.";
                     // } else {
                     //     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-                    //         $oldname = "C:/xampp/htdocs/hamid/mvc/views/market/pic/" . basename($_FILES["fileToUpload"]["name"]);
+                    //         $oldname = "C:/xampp/htdocs/mvc/views/market/pic/" . basename($_FILES["fileToUpload"]["name"]);
                     //         rename($oldname, $newname);
                     //     } else {
                     //         echo "Sorry, there was an error uploading your file.";
@@ -90,7 +91,7 @@ class market extends Controller
     public function delete()
     {
         $this->mymodel->delete('kala', $_GET['id']);
-        unlink("C:/xampp/htdocs/hamid/mvc/views/market/pic/" . $_GET['name'] .".jpg");
+        unlink("C:/xampp/htdocs/mvc/views/market/pic/" . $_GET['name'] . ".jpg");
         header("Location: " . URL . "/market/add/");
     }
 
@@ -139,7 +140,7 @@ class market extends Controller
     public function search()
     {
         $search = $_GET["search"];
-        $alldata = $this->mymodel->select('kala', '*', "name like '%$search%' AND body like '%$search%'", 0);
+        $alldata = $this->mymodel->select('kala', '*', "name like '%$search%' OR body like '%$search%'", 0);
         $this->ViewObject->render(__class__, 'index', $alldata);
     }
 }

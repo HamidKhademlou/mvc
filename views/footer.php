@@ -34,7 +34,7 @@
             </a>
           </li>
         </ul>
-        <p class="copyright text-muted shadow-lg rounded">Copyright &copy; Hamid MVC 2018</p>
+        <p class="copyright text-muted">Copyright &copy; Hamid MVC 2018</p>
       </div>
     </div>
   </div>

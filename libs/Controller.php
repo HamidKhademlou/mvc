@@ -5,7 +5,7 @@ class Controller
     public function __construct()
     {
         $this->ViewObject = new View();
-        session::init();
+        // session::init();
     }
     public function check_access()
     {

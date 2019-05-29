@@ -1,7 +1,7 @@
 body {
     font-size: 20px;
     font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    background-image: url("sard.jpg");
+    background-image: url("../../../views/sard.jpg");
     background-size: cover;
     background-repeat: no-repeat;
 }

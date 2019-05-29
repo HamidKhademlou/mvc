@@ -2,5 +2,14 @@ RewriteEngine On
 # if a directory or a file exists,use it directly
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
+# block trafic of a site
+# Options +FollowSymlinks
+# RewriteCond %{HTTP_REFERER} otherdomain\.com [NC,OR]
+# RewriteCond %{HTTP_REFERER} anotherdomain\.com
 # otherwise forward it to index.php
 RewriteRule . index.php?url=$1 [QSA,L]
+
+# AuthName "inter username and password"
+# AuthUserFile /path/to/password/file/.htpasswd
+# AuthType Basic
+# require valid-user

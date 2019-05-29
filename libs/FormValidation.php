@@ -90,18 +90,22 @@ class FormValidation
         return $passwordErr;
     }
 
-    public static function input_email($email, $required = true)
+    // public static function input_email($email, $required = true)
+    // {
+    //     $emailErr = null;
+    //     if (empty($email) && $required == true) {
+    //         $emailErr = "Email is required. ";
+    //     } else {
+    //         // check if e-mail address is well-formed
+    //         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    //             $emailErr = "Invalid email format! ";
+    //         }
+    //     }
+    //     return $emailErr;
+    // }
+    public static function validation_email($email)
     {
-        $emailErr = null;
-        if (empty($email) && $required == true) {
-            $emailErr = "Email is required. ";
-        } else {
-            // check if e-mail address is well-formed
-            if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                $emailErr = "Invalid email format! ";
-            }
-        }
-        return $emailErr;
+        return filter_var($email, FILTER_VALIDATE_EMAIL);
     }
 
     public static function input_website($website, $required = true)
@@ -219,7 +223,7 @@ class FormValidation
     public static function validateDate($date, $format = 'YYYY-MM-DD')
     {
         switch ($format) {
-            // case 'YYYY/MM/DD':
+                // case 'YYYY/MM/DD':
             case 'YYYY-MM-DD':
                 list($y, $m, $d) = preg_split('/[-\.\/ ]/', $date);
                 break;
@@ -260,8 +264,10 @@ class FormValidation
             $uploadOk = 0;
         }
         // Allow certain file formats
-        if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-            && $imageFileType != "gif") {
+        if (
+            $imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+            && $imageFileType != "gif"
+        ) {
             $imageErr .= "Sorry, only JPG, JPEG, PNG & GIF files are allowed." . "<br>";
             $uploadOk = 0;
         }
@@ -269,7 +275,7 @@ class FormValidation
         if ($uploadOk == 0) {
             $imageErr .= "Sorry, your file was not uploaded." . "<br>";
             // if everything is ok, try to upload file
-        } else  {
+        } else {
             if (move_uploaded_file($_FILES["$inputName"]["tmp_name"], $target_file)) {
                 //echo "The file ". basename( $_FILES["$inputName"]["name"]). " has been uploaded.";
                 $oldname = $target_dir . basename($_FILES["fileToUpload"]["name"]);
@@ -307,7 +313,7 @@ class FormValidation
         }
         fclose($myfile);
         return $errorName;
-    }//END Check with file.
+    } //END Check with file.
 
     //Check with database:
     public static function notRepeDatabase($tbName, $fildName, $condition, $modelObject)
@@ -319,5 +325,5 @@ class FormValidation
             $errorName = null;
         }
         return $errorName;
-    }//END heck with database.
+    } //END heck with database.
 }

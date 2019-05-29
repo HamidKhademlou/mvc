@@ -6,6 +6,8 @@ class math extends Controller
     {
         parent::__construct();
         $this->mymodel = $model;
+        Auth::guard('Admin');
+        $this->ViewObject->myjs = array('time.js');
     }
     public function sum($x)
     {
@@ -13,7 +15,7 @@ class math extends Controller
         foreach ($x as $key => $value) {
             $ans["result"] += $value;
         }
-        $this->ViewObject->render(__class__, 'index', $ans,0);
+        $this->ViewObject->render(__class__, 'index', $ans, 0);
     }
     public function mul($x)
     {
@@ -21,6 +23,6 @@ class math extends Controller
         foreach ($x as $key => $value) {
             $ans["result"] *= $value;
         }
-        $this->ViewObject->render(__class__, 'index', $ans,0);
+        $this->ViewObject->render(__class__, 'index', $ans, 0);
     }
 }

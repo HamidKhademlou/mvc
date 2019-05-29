@@ -7,7 +7,7 @@ class Session
     }
     public static function setsession($name, $param)
     {
-        $_SESSION[$name]=$param;
+        $_SESSION[$name] = $param;
     }
     public static function getsession($name)
     {

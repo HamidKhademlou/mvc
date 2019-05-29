@@ -11,7 +11,7 @@
         @font-face {
             font-family: 'b-yekan';
             /*a name to be used later*/
-            src: url('<?= URL ?>/views/fonts/BYekan.ttf');
+            src: url('<?= URL ?>/libs/fonts/BYekan.ttf');
             /*URL to font*/
         }
 
@@ -133,7 +133,7 @@
                                 </td>
                                 <td>
                                     <button class="btn bg-transparent" id="delete-1"><i class="far fa-trash-alt"></i></button>
-                                    <button class="btn bg-transparent" onclick="window.location.href='http://localhost/hamid/mvc/admin/edit/?id=1 &amp;&amp;firstname=حمید&amp;&amp;lastname=خادملو&amp;&amp;username=admin&amp;&amp;email=hamid.5574@yahoo.com'"><i
+                                    <button class="btn bg-transparent" onclick="window.location.href='http://localhost/mvc/admin/edit/?id=1 &amp;&amp;firstname=حمید&amp;&amp;lastname=خادملو&amp;&amp;username=admin&amp;&amp;email=hamid.5574@yahoo.com'"><i
                                             class="far fa-edit"></i></button>
                                 </td>
                             </tr>
@@ -159,7 +159,7 @@
     </div>
     <script src="<?= URL ?>/libs/jquery-3.3.1.min.js"></script>
     <script src="<?= URL ?>/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="http://localhost/hamid/mvc/libs/myjs/search.js"></script>
+    <script src="http://localhost/mvc/libs/myjs/search.js"></script>
 </body>
 
 </html>
